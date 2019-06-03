@@ -1,0 +1,174 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+html,body{
+  width: 100%;
+  height: 100%;
+}
+.page{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: linear-gradient(60deg, 
+  #f8ddd1, 
+  #faece5 73%, 
+  #fad2c0)
+ 
+}
+.cat{
+  top: 10%;
+  right: 15%;
+  width: 70%;
+  height: 90%;
+  position: absolute;
+
+}
+.maowei{
+  position: absolute;
+  width: 65px;
+  height: 195px;
+  left: 50px;
+  top: 20px;
+  background: url(./maowei.png) no-repeat;
+  transform-origin:50% 100% ;
+  animation: maowei 4s 0.2s linear infinite;
+}
+
+@keyframes maowei{
+  0%{
+    transform: rotateZ(0);
+  }
+  25%{
+    transform: rotateZ(-4deg);
+  }
+  50%{
+    transform: rotateZ(0);
+  }
+  75%{
+    transform: rotateZ(4deg);
+  }
+  100%{
+    transform: rotateZ(0);
+  }
+
+}
+.maoshengti{
+    position: absolute;
+    width: 120px;
+    height: 200px;
+    left: 60px;
+    top: 200px;
+    background: url(./maoshenti.png) no-repeat;
+}
+.maoyan1{
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  top: 179px;
+  left: 78px;
+  background: url(./maoyan1.png);
+  animation: maoyan1 1s 1.5s linear 1;
+}
+@keyframes maoyan1{
+  0%{
+    opacity: 1;
+  }
+  20%{
+    opacity: 1;
+  }
+  30%{
+    opacity: 0;
+  }
+  40%{
+    opacity: 1;
+  }
+  60%{
+    opacity: 1;
+  }
+  70%{
+    opacity: 0;
+  }
+  80%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 1;
+  }
+
+}
+
+.maoyan2{
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  top: 183px;
+  left: 92px;
+  background: url(./maoyan2.png);
+  animation: maoyan2 1s 1.5s linear 1;
+}
+
+@keyframes maoyan2{
+  0%{
+    opacity: 1;
+  }
+  20%{
+    opacity: 1;
+  }
+  30%{
+    opacity: 0;
+  }
+  40%{
+    opacity: 1;
+  }
+  60%{
+    opacity: 1;
+  }
+  70%{
+    opacity: 0;
+  }
+  80%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 1;
+  }
+
+}
+
+.maozui{
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  top: 190px;
+  left: 82px;
+  background: url(./maozui.png);
+}
+.maozhua{
+  position: absolute;
+  width: 35px;
+  height: 80px;
+  top: 390px;
+  left: 122px;
+  background: url(./maozhua.png);
+  transform-origin:50% 0% ;
+  animation: maozhua 4s linear infinite;
+}
+@keyframes maozhua{
+  0%{
+    transform: rotateZ(0);
+  }
+  25%{
+    transform: rotateZ(-8deg);
+  }
+  50%{
+    transform: rotateZ(0);
+  }
+  75%{
+    transform: rotateZ(8deg);
+  }
+  100%{
+    transform: rotateZ(0);
+  }
+
+}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+ <!--
+        <div class="box">
+        <p id="title">title</p>
+    </div>
+-->
+<script>
+    const divNode = document.createElement('div');  // creatElement  创建一个元素
+    divNode.className="box";
+    const pNode = document.createElement('p');
+    const textNode = document.createTextNode('title');  //creatTextNode  创建一个文本
+    pNode.appendChild(textNode);   
+    pNode.id='title';
+    divNode.appendChild(pNode);
+    document.body.appendChild(divNode);
+</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+*{
+    margin:0;
+    padding: 0;
+}
+
+.container,.page{
+    position: absolute;
+    left: 0;top: 0;right: 0;bottom: 0;
+
+}
+.mine-title.me{
+    background-color: #f8f8ff;
+}
+.weui-tab__panel.tab{
+    background-color: #e0ffff;
+}
+.page_bd{
+    height: 100%;
+    background-color: white;
+    overflow-y: auto;
+}
+.tab{
+    display: none;
+}
+.tab.show{
+    display: block;
+}
+.mine-title{
+    text-align: center;
+    font-size: 18px;
+    padding: 10px;
+    border-bottom: 1px solid #eeeeee;
+    background-color: #fff;
+}
+.weui-cells.danaofu{
+    margin-top: 20px;
+}
+.body-item.flex0{
+    display: flex;
+}
+.item.flex1{
+    flex: 1;
+    border: 1px solid #f8f4f4;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #fff5ee;
+    padding: 2px;
+    margin: 5px;
+}
+.sppu{
+    padding: 5px;
+    text-align: center;
+}

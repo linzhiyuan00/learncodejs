@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>外卖熊</title>
+  <link rel="stylesheet" href="./bear.css">
+</head>
+<body>
+  <!-- <button>按钮</button> -->
+  <div class="view proload">
+    <div class="load-logo-c">
+      <div class="ride1-c">
+        <div class="ride"></div>
+      </div>
+      <div class="process-c">
+        <div class="process-v"></div>
+      </div>
+      <div class="process-txt"></div>
+    </div>
+    <div id="next">
+      下一屏
+    </div>
+  </div>
+  <div class="view index">
+    第二屏
+  </div>
+  <script>
+  const process = document.querySelector('.process-v');
+  // 获取第一个被选中的元素
+  const next = document.getElementById('next');
+  // 返回拥有指定id的第一个对象的引用
+  let width = 10;
+// 向指定元素添加事件句柄
+  next.addEventListener('click', () => {
+    const viewProload = document.querySelector('.view.proload');
+    viewProload.style.transform = 
+    'translate3d(0,' + -100 + '%, 0)';
+  })
+// 按周期来调用函数
+  let interval = setInterval(() => {
+    // width = width + 10;
+    width += 10;
+    console.log(width);
+    process.style.width = width + '%';
+    if (width >= 100) clearInterval(interval);
+    //clearInterval() 方法可取消由 setInterval() 设置的 timeout。
+  }, 100);
+  // setTimeout(() => {}, 100);
+  //指定时间后调用函数
+  
+  </script>
+</body>
+</html>
+
