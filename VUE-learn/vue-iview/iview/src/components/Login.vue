@@ -18,7 +18,7 @@
         </i-input>
       </FormItem>
       <FormItem class="Login-no-bottom">
-        <Checkbox v-model="formLogin.remember">记住密码</Checkbox>
+        <Checkbox v-model="formLogin.remember" style="float:left">记住密码</Checkbox>
       </FormItem>
       <FormItem class="Login-no-bottom">
         <Row>
@@ -26,7 +26,7 @@
             <i-button type="primary" @click="handleSubmit('formLogin')">登陆</i-button>
           </i-col>
           <i-col :xs="{ span: 4, offset: 6}">
-            <i-button type="primary" @click="formLoginReset('formLogin')">重置</i-button>
+            <i-button type="primary" @click="handleReset('formLogin')">重置</i-button>
           </i-col>
         </Row>
       </FormItem>
@@ -42,7 +42,7 @@ export default {
       formLogin: {
         username: '',
         password: '',
-        remember: []
+        remember: ''
       },
       formLoginRules: {
         username: [
@@ -69,26 +69,27 @@ export default {
     }
   },
   methods: {
-    handleSubmit(name) {
-      this.$refs[name].validate(valid =>{
-        sessionStorage.setItem('user',JSON.stringify(this.formLogin.username))
-        if(valid){
-          this.$Message.success('登录成功！');
-          this.$router.push({ path:'/table'})
-        }else{
-          this.$Message.error('登录失败！');
+    handleSubmit (name) {
+      this.$refs[name].validate(valid => {
+        sessionStorage.setItem('user', JSON.stringify(this.formLogin.username))
+        if (valid) {
+          this.$Message.success('登录成功')
+          this.$router.push({path: '/table'})
+        } else {
+          this.$Message.error('登录失败')
         }
-
-        if(this.formLogin.remember){
-          sessionStorage.setItem('username',JSON.stringify(this.formLogin.username))
-          sessionStorage.setItem('password',JSON.stringify(this.formLogin.password))
-        }else {
+        if (this.formLogin.remember) {
+          sessionStorage.setItem('username', JSON.stringify(this.formLogin.username))
+          sessionStorage.setItem('password', JSON.stringify(this.formLogin.password))
+        } else {
           sessionStorage.removeItem('username')
           sessionStorage.removeItem('password')
         }
       })
+    },
+    handleReseet () {
     }
-  },
+  }
 }
 </script>
 

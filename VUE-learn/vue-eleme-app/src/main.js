@@ -3,11 +3,12 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import iView from 'iview'
-import 'iview/dist/styles/iview.css'
+import axios from 'axios'
+
+import './common/stylus/index.styl'
 
 Vue.config.productionTip = false
-Vue.use(iView)
+Vue.prototype.$http = axios // 将axios挂载到vue的原型链上
 
 /* eslint-disable no-new */
 new Vue({
