@@ -8,7 +8,7 @@
             :key="index"
             class="menu-item"
             :class="{'current' : currentIndex === index}"
-            @click="selectName(index,$event)"
+            @click="selectMenu(index,$event)"
           >
             <span class="text border-1px">
               <span class="icon" v-show="item.type>0" :class="classMap[item.type]"></span>
@@ -17,7 +17,7 @@
           </li>
         </ul>
       </div>
-      <div class="foods-wrapper" ref="foodWrapper">
+      <div class="foods-wrapper" ref="foodsWrapper">
         <ul>
           <li v-for="(item,index) in goods" :key="index" 
           class="food-list" ref="foodList"
@@ -54,53 +54,95 @@
 </template>
 
 <script>
-import BScroll from "better-scroll";
+import BScroll from 'better-scroll'
 import cartcontrol from '@/components/cartcontrol/cartcontrol'
 export default {
-  name: "Goods",
-  data() {
+  name: 'Goods',
+ 
+  data () {
     return {
       classMap: [],
-      goods: []
-    };
+      goods:[],
+      listHeight:[],
+      scrollY:0
+    }
   },
-  created() {
-    this.classMap = ["decrease", "discount", "special", "invoice", "guarantee"];
-    this.$http
-      .get(
-        "https://www.easy-mock.com/mock/5ca466e113e4cf68f04a42fb/cat-eye/vue-ele"
-      )
-      .then(res => {
-        if (res.data.errno === 0) {
-          this.goods = res.data.data;
-          this.$nextTick(() => {
-            // 页面渲染完成才能完成
-            this._initScroll();
-          });
+  computed: {
+    currentIndex (){
+      for(let i = 0;i <this.listHeight.length;i++) {
+        let height1 = this.listHeight[i];
+        let height2 = this.listHeight[i+1];
+        if(!height2 || (this.scrollY >=height1 && this.scrollY < height2)){
+          return i
         }
-      });
+      }
+      return 0
+    }
   },
   components:{
     cartcontrol
   },
   methods: {
-    _initScroll() {
-      this.menuScroll = new BScroll(this.$refs.menuWrapper, { click: true });
+    selectMenu (index,event){
+      if(!event._constructed){
+        return
+      }
+      let foodList = this.$refs.foodList
+      let el = foodList[index] 
+      this.foodsScroll.scrollToElement(el,300)
+    },
+    _initScroll () {
+      this.menuScroll = new BScroll(this.$refs.menuWrapper, {
+        click: true
+      }),
+      this.foodsScroll = new BScroll(this.$refs.foodsWrapper, {
+        click: true,
+        probeType:3
+       }) 
+       this.foodsScroll.on('scroll',pos =>{
+        //  console.log(pos)
+         this.scrollY = Math.abs(Math.round(pos.y))
+        //  console.log(this.scrollY) 
+       })
     },
     addFood(target){
       this._drop(target)
     },
-    _drop(target){
-      //体验优化， 异步执行下落动画
-      this.$nextTick(() =>{
-        //动画组件
+    _drop(target) {
+      //体验优化，异步执行下落动画
+      this.$nextTick(() => {
+        // 动画组件
       })
-    }
+    },
+   _calculateHeight(){
+      let foodList = this.$refs.foodList
+      let height = 0;
+      this.listHeight.push(height);
+      for(let i = 0; i < foodList.length;i++){
+        let item = foodList[i]
+        height += item.clientHeight  //clientHeight获取dom结构高度
+        this.listHeight.push(height)
+      }
+      }
+    
+  },
+  created() {
+    this.classMap = ['decrease', 'discount', 'special', 'invoice', 'guarantee']
 
-  }
-};
+    this.$http.get('https://www.easy-mock.com/mock/5ca466e113e4cf68f04a42fb/cat-eye/vue-ele')
+      .then(res=>{
+        // console.log(res);
+        if (res.data.errno === 0) {
+          this.goods = res.data.data
+          this.$nextTick(() => { //页面渲染才能执行（判断页面是否渲染完成）
+            this._initScroll()
+            this._calculateHeight()
+          })
+        }
+      })
+  },
+}
 </script>
-
 
 <style lang="stylus">
 @import '../../common/stylus/mixin.styl'
