@@ -1,0 +1,3 @@
+- App  commitLists = []  所有的评论
+  - CommitInput { userName, comment}
+  - CommentList []  props ->  commentlists
