@@ -2,7 +2,7 @@
     mysql2  数据库驱动
     sequelize  工具  table -> object
     对底层的sql API化  model
-    aequelize-cli   命令行工具
+    sequelize-cli   命令行工具
 -  sequelize_mysql 目录下  
     npm init -y   初始化
     yarn add mysql2 sequelize sequelize-cli   安装sequelize  依赖
