@@ -1,3 +1,15 @@
+## 
+    class  extends Component {
+    state = {  }
+    render() { 
+        return (  );
+    }
+}
+ 
+export default ;
+
+
+
 - react  命令行命令
 
     npm i create-react-app -g    全局安装react
