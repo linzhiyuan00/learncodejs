@@ -1,0 +1,33 @@
+import  originalJsonp from 'jsonp';
+import { resolve } from 'url';
+import { rejects } from 'assert';
+
+const jsonp = (url,data,option) =>{
+  return new Promise((resolve,reject) =>{
+    originalJsonp(buildUrl(url,data),option,(err,res) =>{
+      if(!err){
+        resolve(res);
+      }
+      else(
+        reject(err)
+      )
+    })
+  })
+}
+
+function buildUrl(url,data){
+  let param = [];
+  for(var k in data){
+    // decodeURIComponent
+    param.push(`${k} = ${encodeURIComponent(data[k])}`)
+  }
+  let paramStr = param.join('&');
+  if(url.indexOf('?') === -1){
+    url+="?" + paramStr
+  }else{
+    url +="&" +paramStr
+  }
+  return url
+}
+
+export default jsonp;
