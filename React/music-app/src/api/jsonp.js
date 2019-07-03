@@ -1,33 +1,35 @@
-import  originalJsonp from 'jsonp';
-import { resolve } from 'url';
-import { rejects } from 'assert';
-
-const jsonp = (url,data,option) =>{
-  return new Promise((resolve,reject) =>{
-    originalJsonp(buildUrl(url,data),option,(err,res) =>{
-      if(!err){
-        resolve(res);
-      }
-      else(
-        reject(err)
-      )
+import originalJsonp from 'jsonp' 
+import {CODE_SUCCESS} from './config'
+const jsonp = (url,data,option) => {
+    return new Promise((resolve,reject)=>{
+        originalJsonp(buildUrl(url,data),option,(err,res)=>{
+            if(!err){
+                if(res && res.code === CODE_SUCCESS){
+                    resolve(res)
+                }else{
+                    // {code:1, msg: 'xxx}
+                    console.log('接口出错了')
+                    reject('接口出错了')
+                }
+            }else{
+                console.log('接口出错了--',)
+                reject(err)
+            }
+        })
     })
-  })
 }
 
 function buildUrl(url,data){
-  let param = [];
-  for(var k in data){
-    // decodeURIComponent
-    param.push(`${k} = ${encodeURIComponent(data[k])}`)
-  }
-  let paramStr = param.join('&');
-  if(url.indexOf('?') === -1){
-    url+="?" + paramStr
-  }else{
-    url +="&" +paramStr
-  }
-  return url
+    let param = [];
+    for(var k in data){
+        param.push(`${k}=${encodeURIComponent(data[k])}`)
+    }
+    let paramStr = param.join('&')
+    if(url.indexOf('?')===-1){
+        url += "?"+paramStr
+    }else{
+        url += "&"+paramStr
+    }
+    return url
 }
-
-export default jsonp;
+export default jsonp

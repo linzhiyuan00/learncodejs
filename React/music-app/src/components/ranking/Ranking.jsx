@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-class Rinking extends Component {
+class Ranking extends Component {
   state = {  }
   render() { 
     return ( 
       <div>
-        Rinking
+        Ranking
       </div>
      );
   }
 }
  
-export default Rinking;
+export default Ranking;
