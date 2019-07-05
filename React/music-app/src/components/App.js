@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch, Redirect, NavLink } from "react
 import Recommend from './recommend/Recommend'
 import Ranking from './ranking/Ranking'
 import Search from './search/Search'
+import Player from '../containers/Player';
 import './App.styl';
 import '../assets/stylus/reset.styl';
 import '../assets/stylus/font.styl';
@@ -16,7 +17,7 @@ function App() {
         </header>
         <div className="music-tab">
           <div className="tab-item">
-            <NavLink className="nav-link" to="/recommand"><span>推荐</span></NavLink>
+            <NavLink className="nav-link" to="/recommend"><span>推荐</span></NavLink>
           </div>
           <div className="tab-item">
             <NavLink className="nav-link" to="/ranking"><span>排行榜</span></NavLink>
@@ -35,6 +36,7 @@ function App() {
             <Redirect from="/" to="/recommend"></Redirect>
           </Switch>
         </div>
+        <Player  />
       </div>
     </Router>
   );
