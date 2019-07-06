@@ -3,6 +3,7 @@ class AddToDoList extends Component {
     state = {}
     render() {
         const { addToDo } = this.props
+        console.log(this.props)
         return (
             <div>
                 <form onSubmit={e => {

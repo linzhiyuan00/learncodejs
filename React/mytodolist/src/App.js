@@ -1,8 +1,8 @@
 import React from 'react';
 import logo from './logo.svg';
-import Add from './components/todolist/add';
+import Add from './container/add';
 import Title from './components/title/title';
-import ShowAll from './components/todolist/showall';
+import ShowAll from './container/showall';
 import './App.css';
 
 function App() {
