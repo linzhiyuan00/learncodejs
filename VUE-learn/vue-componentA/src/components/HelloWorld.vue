@@ -1,16 +1,26 @@
 <template>
   <div class="hello">
-    <button @click="submit">登录</button>
+    <!-- <button @click="submit">登录</button> -->
+    <i-button size="large">按钮</i-button>
+    <i-menu></i-menu>
+
   </div>
 </template>
 
 <script>
+import button from './com/button'
+import menu from './com/menu'
+
 export default {
   name: 'HelloWorld',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
     }
+  },
+  components:{
+    'i-button':button,
+    'i-menu':menu
   },
   methods: {
     submit(){
