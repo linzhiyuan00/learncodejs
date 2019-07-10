@@ -17,3 +17,11 @@
 
 #q5   数组去重
     set  indexOf includes  map reduce
+
+#q6   防抖节流
+
+#q7   隐式原型与显式原型
+      只有function才有显式原型
+      所有类型都有隐式原型
+
+      实例的隐式原型是它的构造函数的显式原型
