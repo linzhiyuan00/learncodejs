@@ -4,6 +4,10 @@ import './App.css';
 import movie from './pages/movie';
 import cinema from './pages/cinema';
 import mine from './pages/mine';
+import './App.styl';
+import moviepng from './assets/movie.png'
+import cinemapng from './assets/cinema.png'
+import minepng from './assets/mine.png'
 
 
 function App() {
@@ -15,13 +19,26 @@ function App() {
         </div>
         <div className="tabbar">
           <div className="tabbar-item">
-            <NavLink className="nav-link" to="./movie"><span>电影</span></NavLink>
+            <NavLink className="nav-link" to="/movie" activeClassName="active">
+              <div className="tabbar-image">
+                <img alt="" src={moviepng}></img>
+              </div>
+              <span>电影</span>
+              </NavLink>
           </div>
           <div className="tabbar-item">
-            <NavLink className="nav-link" to="./cinema"><span>影院</span></NavLink>
+            <NavLink className="nav-link" to="/cinema">
+            <div className="tabbar-image">
+                <img alt="" src={cinemapng}></img>
+              </div>
+              <span>影院</span></NavLink>
           </div>
           <div className="tabbar-item">
-            <NavLink className="nav-link" to="./mine"><span>我的</span></NavLink>
+            <NavLink className="nav-link" to="/mine">
+            <div className="tabbar-image">
+                <img alt="" src={minepng}></img>
+              </div>
+              <span>我的</span></NavLink>
           </div>
 
 
