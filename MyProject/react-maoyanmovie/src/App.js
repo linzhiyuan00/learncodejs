@@ -14,9 +14,6 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <div className="header">
-          猫眼电影
-        </div>
         <div className="tabbar">
           <div className="tabbar-item">
             <NavLink className="nav-link" to="/movie" activeClassName="active">

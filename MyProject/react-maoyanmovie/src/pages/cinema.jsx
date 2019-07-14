@@ -4,7 +4,11 @@ class Cinema extends Component {
   state = {  }
   render() { 
       return (  
-        <div>影院</div>
+        <div>
+          <div className="header">
+          影院
+        </div>
+          影院</div>
       );
   }
 }

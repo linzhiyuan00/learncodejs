@@ -4,7 +4,12 @@ class Mine extends Component {
   state = {  }
   render() { 
       return (  
-        <div>我的</div>
+        <div>
+          <div className="header">
+          我的
+        </div>
+        我的
+        </div>
       );
   }
 }
