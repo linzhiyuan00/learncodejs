@@ -1,12 +1,25 @@
 import React, { Component } from 'react';
 import Scroll from '../common/scroll/Scroll';
 import Lazyload, { forceCheck } from 'react-lazyload';
+import axios from 'axios';
+import URL from '../api/apiManger';
 
 
 class OnShow extends Component {
   state = { 
     refreshScroll:false
    }
+    getmovielist(){
+    axios.get('v2/movie/in_theaters?apikey=0df993c66c0c636e29ecbb5344252a4a&start=0&count=10').then((res) =>{
+      console.log(res)
+    }).catch((err) =>{
+      console.log(err)
+    })
+   }
+   componentDidMount() {
+    this.getmovielist()
+   }
+   
   render() { 
     const { refreshScroll } = this.state
       return (  
