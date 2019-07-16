@@ -15,16 +15,22 @@ class OnShow extends Component {
     refreshScroll: false
   }
   getImage(url){
-    console.log(url);
     // 把现在的图片连接传进来，返回一个不受限制的路径
     if(url !== undefined){
       return url.replace(/^(http)[s]*(\:\/\/)/,'https://images.weserv.nl/?url=');
     }
   }
+  ifonshow(rating){
+    if(rating == 0) {
+      return false
+    }else{
+      return true
+    }
+  }
   componentDidMount() {
     getmovieonshowlist().then(res => {
       let movielist = res.data.subjects
-      console.log("movielist", movielist)
+      console.log("movieonshowlist", movielist)
       this.setState({
         movielist,
         show: false
@@ -46,16 +52,24 @@ class OnShow extends Component {
             <div className="moviename">
               {movie.name}
             </div>
-            <div className="rating">
+            <div className="rating" style={{display: this.ifonshow(movie.rating) ? 'inline-block' : 'none'}}>
               <span className="ratingtext">观众评</span>
               <span className="ratingnum">{movie.rating}</span>
+            </div>
+            <div className="wantsee" style={{display: this.ifonshow(movie.rating) ? 'none' : 'inline-block'}}>
+              <span className="peoplenum">{movie.count}</span>
+              <span className="wantseetext">人想看</span>
             </div>
             <div className="casts">
               主演:{movie.casts}
             </div>
+            <div className="genres">
+              {movie.genres}
+            </div>
           </div>
           <div className="buy">
-            <div className="btn">购票</div>
+            <div className="onshowbtn" style={{display: this.ifonshow(movie.rating) ? 'inline-block' : 'none'}}>购票</div>
+            <div className="willshowbtn" style={{display: this.ifonshow(movie.rating) ? 'none' : 'inline-block'}}>预售</div>
           </div>
         </div>
       )

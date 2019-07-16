@@ -11,7 +11,7 @@
 // }
 
 class Movie{
-  constructor(id,name,img,rating,casts,durations,year){
+  constructor(id,name,img,rating,casts,durations,year,count,genres){
       this.id = id;
       this.name = name;
       this.img = img;
@@ -19,6 +19,8 @@ class Movie{
       this.casts = casts;
       this.durations = durations;
       this.year = year;
+      this.count = count;
+      this.genres = genres;
   }
 }
 // export function createAlbumByItem(item) {
@@ -68,6 +70,8 @@ export function createMovieListByItem(item) {
     item.rating.average,
     item.casts.map(cast =>cast.name).join("/"),
     item.durations,
-    item.year
+    item.year,
+    item.collect_count,
+    item.genres.map(genres =>genres).join(' ')
   )
 }
