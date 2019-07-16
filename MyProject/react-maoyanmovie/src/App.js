@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect, NavLink } from "react-router-dom";
 import './App.css';
-import movie from './pages/movie';
-import cinema from './pages/cinema';
-import mine from './pages/mine';
+import movie from './pages/movie/movie';
+import cinema from './pages/cinema/cinema';
+import mine from './pages/mine/mine';
 import './App.styl';
 import moviepng from './assets/movie.png'
 import cinemapng from './assets/cinema.png'

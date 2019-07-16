@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect, NavLink } from "react-router-dom";
-import OnShow from './onshow';
-import WillShow from './willshow';
+import OnShow from './onshow/onshow';
+import WillShow from './willshow/willshow';
 import './movie.styl'
 
 class Movie extends Component {
