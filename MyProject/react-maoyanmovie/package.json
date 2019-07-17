@@ -134,5 +134,14 @@
       "react-app"
     ]
   },
-  "proxy":"http://api.douban.com"
+  "proxy": {
+    "/api/doubanapi": {
+      "target": "http://api.douban.com",
+      "changeOrigin":true
+    },
+    "/api/baseapi": {
+      "target": "http://localhost:3000",
+      "changeOrigin":true
+    }
+  }
 }

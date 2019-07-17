@@ -6,7 +6,7 @@ import { getSongVKey } from '../../api/song';
 import * as AlbumModel from '../../model/album';
 import * as SongModel from '../../model/song';
 import Header from '../../common/header/Header';
-import './album.styl'
+import './album.styl';
 class Album extends Component {
   state = {
     show: false,

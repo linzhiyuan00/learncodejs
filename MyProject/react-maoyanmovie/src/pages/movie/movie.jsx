@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect, NavLink } from "react-router-dom";
 import OnShow from './onshow/onshow';
 import WillShow from './willshow/willshow';
+import Search from './search/search';
+import searchpng from '../../assets/search.png';
 import './movie.styl'
 
 class Movie extends Component {
@@ -31,7 +33,7 @@ class Movie extends Component {
                 <NavLink className="navlink" to="/WillShow" activeClassName="onactive"><span className="tabname">即将上映</span></NavLink>
               </div>
               <div className="tabitem">
-                <NavLink className="navlink" to="/" ><span className="search">搜索</span></NavLink>
+                <NavLink className="navlink" to="/Search" activeClassName="searchactive" ><span className="search"><img src={searchpng} alt=""/></span></NavLink>
               </div>
 
             </div>
@@ -41,6 +43,7 @@ class Movie extends Component {
               {/* 路由 */}
               <Route path="/OnShow" component={OnShow}></Route>
               <Route path="/WillShow" component={WillShow}></Route>
+              <Route path="/Search" component={Search}></Route>
               <Redirect from="/" to="/OnShow"></Redirect>
             </Switch>
           </div>
