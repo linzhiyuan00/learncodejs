@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './header.styl';
+import backpng from '../../assets/back.png';
 class Header  extends Component {
   state = {  }
   handleback = () =>{
@@ -13,7 +14,9 @@ class Header  extends Component {
       return ( 
         <div className="music-header">
           <span className="header-back" onClick={this.handleback}>
-            <i className="icon-back"></i>
+            <i className="icon-back">
+              <img src={backpng} alt=""/>
+            </i>
           </span>
           <div className="header-title">
             { this.props.title }

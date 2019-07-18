@@ -46,9 +46,6 @@ class OnShow extends Component {
         show: false
       })
     })
-    getmovieinfo(30282387).then(res =>{
-      console.log(res.data)
-    })
   }
   renderMovielist() {
     const { movielist = [] } = this.state;
