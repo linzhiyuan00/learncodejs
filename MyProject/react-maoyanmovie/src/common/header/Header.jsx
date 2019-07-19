@@ -9,6 +9,7 @@ class Header  extends Component {
     // }
     // <Route path="*" component>
     window.history.back();
+    console.log('返回')
   }
   render() { 
       return ( 

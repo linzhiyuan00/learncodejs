@@ -44,47 +44,29 @@ class MovieInfo extends Component {
         <Scroll refresh>
           <div className="movie-detail">
             <Header title={movieinfo.title} ref="header"></Header>
-            <div className="movieinfo-top" style={{ position: "absolute" }}>
-              <div className="bgimg" style={{ backgroundImage: `url${movieimage}` }}>
-                <div className="filter"></div>
+            <div className="movieinfo-bg" style={{ position: "absolute" }}>
+              <div className="bgimg">
+                <img src={this.getImage(movieinfo.images)} alt="" />
               </div>
             </div>
-            <div className="movie-summary">
-              {movieinfo.summary}1
+            <div className="movie-body">
+              <div className="movie-top">
+                <div className="left">
+                  <img src={this.getImage(movieinfo.images)} alt="" />
                 </div>
-            <div className="movie-summary">
-              {movieinfo.summary}2
+                <div className="right">
+                  <div className="title">{movieinfo.title}</div>
+                  <div className="titleaka">{movieinfo.aka}</div>
+                  <div className="rating">{movieinfo.rating}</div>
+                  <div className="genres">{movieinfo.genres}</div>
+                  <div className="dur-place">
+                    <span>{movieinfo.countries}</span>
+                    <span>{movieinfo.durations}</span>
+                  </div>
+                  <div className="pubdate">{movieinfo.pubdate}上映</div>
                 </div>
-            <div className="movie-summary">
-              {movieinfo.summary}3
-                </div>
-            <div className="movie-summary">
-              {movieinfo.summary}4
-                </div>
-            <div className="movie-summary">
-              {movieinfo.summary}5
-                </div>
-            <div className="movie-summary">
-              {movieinfo.summary}6
-                </div>
-            <div className="movie-summary">
-              {movieinfo.summary}7
-                </div>
-            <div className="movie-summary">
-              {movieinfo.summary}8
-                </div>
-            <div className="movie-summary">
-              {movieinfo.summary}9
-                </div>
-            <div className="movie-summary">
-              {movieinfo.summary}10
-                </div>
-            <div className="movie-summary">
-              {movieinfo.summary}11
-                </div>
-            <div className="movie-summary">
-              {movieinfo.summary}12
-                </div>
+              </div>
+            </div>
           </div>
         </Scroll>
       </CSSTransition>
