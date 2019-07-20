@@ -60,11 +60,14 @@ class MovieInfo extends Component {
                   <div className="rating">{movieinfo.rating}</div>
                   <div className="genres">{movieinfo.genres}</div>
                   <div className="dur-place">
-                    <span>{movieinfo.countries}</span>
+                    <span>{movieinfo.countries}/</span>
                     <span>{movieinfo.durations}</span>
                   </div>
-                  <div className="pubdate">{movieinfo.pubdate}上映</div>
+                  <div className="pubdate">{movieinfo.pubdate} 上映</div>
                 </div>
+              </div>
+              <div className="movie-container">
+                
               </div>
             </div>
           </div>
