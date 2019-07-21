@@ -71,7 +71,7 @@ class OnShow extends Component {
             </div>
             <div className="wantsee" style={{display: this.ifonshow(movie.rating) ? 'none' : 'inline-block'}}>
               <span className="peoplenum">{movie.count}</span>
-              <span className="wantseetext">人想看</span>
+              <span className="wantseetext">人收藏</span>
             </div>
             <div className="casts">
               主演:{movie.casts}

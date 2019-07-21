@@ -6,6 +6,9 @@ import { getmovieinfo } from '../../../api/apifun';
 import { createMovieDetail } from '../../../model/movieinfo';
 
 import './movieinfo.styl'
+import star from '../../../assets/star.png';
+import halfstar from '../../../assets/halfstar.png';
+import nostar from '../../../assets/nostar.png';
 
 
 
@@ -13,6 +16,13 @@ class MovieInfo extends Component {
   state = {
     isShow: false,
     movieinfo: {}
+  }
+  ifonshow(rating) {
+    if (rating == 0) {
+      return false
+    } else {
+      return true
+    }
   }
   getImage(url) {
     // 把现在的图片连接传进来，返回一个不受限制的路径
@@ -57,7 +67,20 @@ class MovieInfo extends Component {
                 <div className="right">
                   <div className="title">{movieinfo.title}</div>
                   <div className="titleaka">{movieinfo.aka}</div>
-                  <div className="rating">{movieinfo.rating}</div>
+                  <div className="rating">
+                    <div className="movierating" style={{ display: this.ifonshow(movieinfo.rating) ? 'inline-block' : 'none' }} >
+                      <span><img src={movieinfo.rating < 0.5 ? nostar : movieinfo.rating > 1.5 ? star : halfstar} alt="" /></span>
+                      <span><img src={movieinfo.rating < 2.5 ? nostar : movieinfo.rating > 3.5 ? star : halfstar} alt="" /></span>
+                      <span><img src={movieinfo.rating < 4.5 ? nostar : movieinfo.rating > 5.5 ? star : halfstar} alt="" /></span>
+                      <span><img src={movieinfo.rating < 6.5 ? nostar : movieinfo.rating > 7.5 ? star : halfstar} alt="" /></span>
+                      <span><img src={movieinfo.rating < 8.5 ? nostar : movieinfo.rating > 9.5 ? star : halfstar} alt="" /> </span>
+                      <span> {movieinfo.rating}</span>
+                    </div>
+                    <div className="wantsee" style={{ display: this.ifonshow(movieinfo.rating) ? 'none' : 'inline-block' }}>
+                      <span className="peoplenum">{movieinfo.wish_count}</span>
+                      <span className="wantseetext">人想看</span>
+                    </div>
+                  </div>
                   <div className="genres">{movieinfo.genres}</div>
                   <div className="dur-place">
                     <span>{movieinfo.countries}/</span>
@@ -67,7 +90,7 @@ class MovieInfo extends Component {
                 </div>
               </div>
               <div className="movie-container">
-                
+
               </div>
             </div>
           </div>
