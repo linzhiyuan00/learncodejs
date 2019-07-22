@@ -90,7 +90,7 @@ class MovieInfo extends Component {
                 </div>
               </div>
               <div className="movie-container">
-
+                <div></div>
               </div>
             </div>
           </div>
