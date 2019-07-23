@@ -2,16 +2,15 @@
   <div>
     <p>Hi from {{name}}</p>
     <NLink to="/">
-      Home Page
+    Home Page
     </NLink>
   </div>
 </template>
-
 <script>
 export default {
-  asyncData (){
+  asyncData () {
     return {
-      name:process.static ? 'static' : (process.server ? 'server' : 'client') 
+      name: process.static ? 'static': (process.server?'server':'client')
     }
   },
   head: {
@@ -19,7 +18,3 @@ export default {
   }
 }
 </script>
-
-<style>
-
-</style>

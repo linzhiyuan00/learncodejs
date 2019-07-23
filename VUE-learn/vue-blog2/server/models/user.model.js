@@ -1,7 +1,7 @@
 // 物理collection的model 映射
 const mongoose = require('mongoose');
 const md5 = require('md5');
-const { Schema } = mongoose ;
+const { Schema } = mongoose 
 const UserSchema = new Schema ({
   role: {
     type: String,

@@ -2,12 +2,26 @@ const {
   Nuxt,
   Builder  // mvc req res   pages/index.vue
 } = require('nuxt')
+require('./models');
 const express = require('express');
 
 const app = express();
 const path = require('path');
 // /api
 const config = require('../nuxt.config.js');
+const requireAll = require('require-all');
+
+const routes = requireAll({
+  dirname:path.join(__dirname,'./routes/'),
+  filter:/(.+)\.route\.js$/
+})
+console.log(routes);
+for(const router of Object.values(routes)) {
+  console.log(router);
+  app.use('/api',router);
+}
+
+
 const start = async () => {
   const nuxt = new Nuxt(config);
   if (true) {
