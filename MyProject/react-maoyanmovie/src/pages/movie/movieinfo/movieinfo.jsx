@@ -96,7 +96,7 @@ class MovieInfo extends Component {
                 <div className="introduce">
                   <input type="checkbox" id="introduce" />
                   <p>{movieinfo.summary}</p>
-                  <label for="introduce"><img src={arrow} alt="" /></label>
+                  <label htmlFor="introduce"><img src={arrow} alt="" /></label>
                 </div>
               </div>
             </div>
