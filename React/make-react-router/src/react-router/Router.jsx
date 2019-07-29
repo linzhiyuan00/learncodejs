@@ -1,21 +1,23 @@
-import React from 'react';
+import React, { Component } from 'react';
 import RouterContext from './RouterContext';
 class Router extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      location:props.history.location
+      location: props.history.location
     }
   }
-  render() {
+  render() { 
     return (
-      <RouterContext.Provider 
+      <RouterContext.Provider
       children={this.props.children}
       value={{
-        history:this.props.history,
-        location:this.state.location
+        history: this.props.history,
+        location: this.state.location
       }}
       />
-    )
+    );
   }
 }
+ 
+export default Router;
