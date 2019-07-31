@@ -42,7 +42,16 @@ export default {
   },
   methods: {
     loginOnClick() {
-
+      this.loginAjax()
+    },
+    loginAjax() {
+      let params = {
+        userName : this.user.phone,
+        passWord : this.user.password
+      }
+      this.$http.post('/user',params).then(res => {
+        console.log(res)
+      })
     }
   },
 }
